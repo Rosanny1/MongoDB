@@ -1,0 +1,125 @@
+use ("facebook")
+
+db.usuarios
+db.usuarios.find()
+// inserindo usuarios
+db.usuarios.insertOne({
+  nome:"Rosanny",
+  sobrenome: "Zapata",
+  cpf:'77029477282',
+  senha: "*rosanny",
+  edade: 30,
+  email:"jannirythzapata@gmail.com",
+})
+
+
+
+db.usuarios.insertMany([
+{
+  nome:"Marsella",
+  sobrenome: "La rosa",
+  cpf:'77029477283',
+  senha: "12348d",
+  edade: 60,
+  email:"marsella@gmail.com",
+ },
+ {
+  nome:"Obdulio",
+  sobrenome: "Brito",
+  cpf:'29472377285',
+  senha: "505036",
+  edade: 45,
+  email:"bridulio@gmail.com",
+ },
+ {
+  nome:"Omar",
+  sobrenome: "Agelvis",
+  cpf:'29472377282',
+  senha: "31254ss",
+  edade: 36,
+  email:"omarn@gmail.com",
+ }
+])
+
+
+db.post
+db.post.find()
+// inserindo dados en post.
+db.post.insertOne({
+    tipo:'video',
+    url:"https://www.youtube.com/watch?v=fZgJHJO81dw",
+    titulo:"Aprendendo MongoDB",
+    comentario:[
+        {
+            comentario:'Obrigada por compartilhar, muito bom',
+            cpf:29472377285,
+        },
+        {
+            comentario:'estou amando o Mongodb, bom video',
+            cpf:29472377282,
+        }
+    ],
+    cpf:77029477282,
+    data_criacao:25/06/2022,
+})
+
+// colecton amigos
+db.amigos
+db.amigos.find()
+db.amigos.insertOne({
+
+cpf:'77029477282',
+amigos:[
+{ 
+  cpf:'77029477283',  
+  nome:"Marsella",
+  sobrenome: "La rosa",
+  
+},
+{
+  cpf:'29472377282',  
+  nome:"Omar",
+  sobrenome: "Agelvis",
+   
+},
+]
+})
+
+db.grupos
+db.grupos.find()
+db.grupos.insertOne({
+    nome: 'familia',
+    usuarios:[
+        {
+         cpf:'77029477282',   
+        },
+        {
+         cpf:'77029477283',   
+        },
+    ]
+})
+
+db.usuarios.insertOne({
+  nome:"Virginia",
+  sobrenome: "La rosa",
+  cpf:'77029497283',
+  senha: "12358d",
+  edade: 36,
+  email:"Vchina@gmail.com",
+})
+
+db.usuarios.find(
+    {idade: {$gt: 20}},
+    {nome:1,idade:1, _id:0},
+    
+)
+
+
+db.post.find()
+db.grupos.find()
+db.usuarios.find()
+db.usuarios.deleteOne({
+  id:("62e18479b2fed21463ac6b64")
+})
+db.usuarios.deleteMany({})
+db.usuarios.drop()
